@@ -17,3 +17,19 @@ vertex $v$ is placed in position $t$. The binary variable $u_{v,t}$ is
 >   $y_{v,t} \le u_{v,t} + y_{w,t}\text{ for }(v,w) \in E, t=1,\dots,n$  
 >   $\sum_{v \in V}\, u_{v,t} \le z\text{ for }t=1,\dots,n$  
 >   $y_{v,t}, u_{v,t} \in \{0,1\}\text{ for }v \in V, t=1,\dots,n$  
+
+Installation
+============
+After doing a git clone of this repository, run `uv sync` which will
+download the dependencies. You can then run the command
+
+`uv run solve <graph family> <graph parameters> --solver <solvers to run>` 
+
+Here `<graph family>` can be `square`,`hamming`,`grid`,`king`,`knight`
+or `square_diff`
+
+The arguments to `--solver` can be a list of any solvers known to
+`pyomo`.
+
+This command will first run the Coudert model with the MaxSat solver
+RC2, and then run the same model with the chose MILP solvers.
