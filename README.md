@@ -32,4 +32,4 @@ The arguments to `--solver` can be a list of any solvers known to
 `pyomo`.
 
 This command will first run the Coudert model with the MaxSat solver
-RC2, and then run the same model with the chose MILP solvers.
+RC2, and then run the same model with the chosen MILP solvers.
