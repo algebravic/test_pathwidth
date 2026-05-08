@@ -4,7 +4,7 @@
   
 """
 import argparse
-from separation import pathwidth_order
+from separation import pathwidth_order, VertexSeparation
 from graph_families import square_graph, grid_graph, king_graph
 from graph_families import knight_graph, square_diff_graph, hamming_graph
 from milp_separation import pyomo_pathwidth_model
@@ -31,6 +31,8 @@ def run_pathwidth():
                         help='Whether to use the exhaust option for RC2')
     parser.add_argument('--stratified', type=bool, default=False,
                         help='Whether to use the stratified solver')
+    parser.add_argument('--convert', action="store_true",
+                        help="Use converted MaSat model")
     families = {'knight': (knight_graph, 2),
                 'square': (square_graph, 1),
                 'square_diff' : (square_diff_graph, 1),
@@ -54,7 +56,11 @@ def run_pathwidth():
                         adapt = args.adapt,
                         stratified = args.stratified)
     # Now try the MIP solver
-    model = pyomo_pathwidth_model(gph)
+    if args.convert:
+        vsep = VertexSeparation(gph)
+        model = wcnf_to_pyomo(vsep._cnf)
+    else:
+        model = pyomo_pathwidth_model(gph)
     for solver in args.solver:
         print(f"Using solver {solver}")
         try:
