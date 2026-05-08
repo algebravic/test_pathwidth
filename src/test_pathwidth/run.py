@@ -1,5 +1,5 @@
 """
-  Contast the MaxSat implementation of pathwidth with the MIP implementation
+  Contrast the MaxSat implementation of pathwidth with the MIP implementation
 
   
 """
@@ -9,6 +9,7 @@ from graph_families import square_graph, grid_graph, king_graph
 from graph_families import knight_graph, square_diff_graph, hamming_graph
 from milp_separation import pyomo_pathwidth_model
 import pyomo.environ as pyo
+from .convert import wcnf_to_pyomo
 
 def run_pathwidth():
 
