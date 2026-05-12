@@ -19,5 +19,5 @@ milp-separation = { git = "https://github.com/algebravic/milp_separation.git" }
 solve = "test_pathwidth.run:run_pathwidth"
 
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.11.13,<0.12"]
+build-backend = "uv_build"

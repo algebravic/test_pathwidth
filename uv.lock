@@ -209,8 +209,8 @@ wheels = [
 
 [[package]]
 name = "milp-separation"
-version = "0.1.0"
-source = { git = "https://github.com/algebravic/milp_separation.git#3c8035514246fd4cbe1158788b44a0708f8cf049" }
+version = "0.1.1"
+source = { git = "https://github.com/algebravic/milp_separation.git#1e73d171b5e77a3cc66638bc1c2c3b71d47f3ccf" }
 dependencies = [
     { name = "cvxpy" },
     { name = "networkx" },
